@@ -97,13 +97,13 @@ int main() {
 			// 가로로 승리할 경우
 			if (board[i][0] == currentUser and board[i][1] == currentUser and board[i][2]) {
 				winner = currentUser;
-				cout << "가로에 모두 돌이 놓였습니다!: " << k % 2 + 1 << "번 유저(" << currentUser << ")의 승리입니다!" << endl;
+				cout << "가로에 모두 돌이 놓였습니다!: ";
 				isWin = true;
 			}
 			// 세로로 승리할경우
 			if (board[0][i] == currentUser and board[1][i] == currentUser and board[2][i] == currentUser) {
 				winner = currentUser;
-				cout << "세로에 모두 돌이 놓였습니다!: " << k % 2 + 1 << "번 유저(" << currentUser << ")의 승리입니다!" << endl;
+				cout << "세로에 모두 돌이 놓였습니다!: ";
 				isWin = true;
 			}
 		}
@@ -111,7 +111,7 @@ int main() {
 		// 오른쪽으로 하강하는 대각선 경우
 		if (board[0][0] == currentUser and board[1][1] == currentUser and board[2][2] == currentUser) {
 			winner = currentUser;
-			cout << "오른쪽 위에서 왼쪽 아래 대각선으로 모두 돌이 놓였습니다!: ";
+			cout << "오른쪽 위에서 왼쪽 아래 대각선으로 모두 돌이 놓였습니다!: "; 
 			isWin = true;
 		}
 		// 왼쪽으로 하강하는 대각선 경우
@@ -123,7 +123,8 @@ int main() {
 
 		// 위에서 설정한 종료에 관한 불리안 변수를 사용하여 승자 표시와 게임 종료
 		if (isWin == true) {
-			cout << k % 2 + 1 << "번 유저(" << currentUser << ")의 승리입니다!" << endl;
+			// 승자를 출력할 때 k % 2의 값이 0이면 2번 유저로, 아니면 1번 유저로 출력
+			cout << (k % 2 == 0 ? 2 : 1) << "번 유저(" << currentUser << ")의 승리입니다!" << endl;
 			cout << "종료합니다" << endl;
 			break;
 		}
